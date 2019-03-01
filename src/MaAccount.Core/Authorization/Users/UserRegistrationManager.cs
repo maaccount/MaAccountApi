@@ -37,7 +37,7 @@ namespace MaAccount.Authorization.Users
             AbpSession = NullAbpSession.Instance;
         }
 
-        public async Task<User> RegisterAsync(string name, string surname, string emailAddress, string userName, string plainPassword, bool isEmailConfirmed)
+        public async Task<User> RegisterAsync(string name, string surname, string emailAddress, string userName, string plainPassword, bool isEmailConfirmed, string question, string answer)
         {
             CheckForTenant();
 
@@ -51,12 +51,15 @@ namespace MaAccount.Authorization.Users
                 EmailAddress = emailAddress,
                 IsActive = true,
                 UserName = userName,
+                PhoneNumber = userName,
                 IsEmailConfirmed = isEmailConfirmed,
+                Question = question,
+                Answer = answer,
                 Roles = new List<UserRole>()
             };
 
             user.SetNormalizedNames();
-           
+
             foreach (var defaultRole in await _roleManager.Roles.Where(r => r.IsDefault).ToListAsync())
             {
                 user.Roles.Add(new UserRole(tenant.Id, user.Id, defaultRole.Id));

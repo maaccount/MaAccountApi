@@ -9,6 +9,16 @@ namespace MaAccount.Authorization.Users
     {
         public const string DefaultPassword = "123qwe";
 
+        /// <summary>
+        /// 密保问题
+        /// </summary>
+        public string Question { get; set; }
+
+        /// <summary>
+        /// 密保答案
+        /// </summary>
+        public string Answer { get; set; }
+
         public static string CreateRandomPassword()
         {
             return Guid.NewGuid().ToString("N").Truncate(16);

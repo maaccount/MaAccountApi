@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Abp.Auditing;
 using Abp.Authorization.Users;
-using Abp.Extensions;
-using MaAccount.Validation;
 
 namespace MaAccount.Authorization.Accounts.Dto
 {
-    public class RegisterInput : IValidatableObject
+    public class ForgetPasswordInput
     {
         [Required]
         [StringLength(AbpUserBase.MaxUserNameLength)]
@@ -23,10 +20,5 @@ namespace MaAccount.Authorization.Accounts.Dto
         public string Question { get; set; }
 
         public string Answer { get; set; }
-
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            return new List<ValidationResult>();
-        }
     }
 }
