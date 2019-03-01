@@ -251,3 +251,5 @@ paket-files/
 .idea/
 *.sln.iml
 /src/MaAccount.Web.Host/App_Data/Logs
+/src/MaAccount.Web.Host/appsettings.Production.json
+/src/MaAccount.Web.Host/appsettings.Staging.json
